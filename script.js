@@ -1,11 +1,18 @@
 // Assignment code here
 
-function generatePassphrase() {
+function generatePassword() {
   // Declaring arrays to contain each character that can be used in a password
   var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var upperArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ]
-  var characterArray = ["@", "%", "&", "(", ")", "+", "=", "#"]
+  var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ];
+  var characterArray = ["@", "%", "&", "(", ")", "+", "=", "#"];
+
+  // Prompt user for input on what kind of characters they would like in the password and store response as a variable
+  var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
+  var numbers = confirm("Include numbers?");
+  var uppercase = confirm("Include uppercase letters?")
+  var lowercase = confirm("Include lowercase letters?")
+  var characters = confirm("Include special characters?")
 }
 
 
