@@ -7,21 +7,35 @@ function generatePassword() {
   var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ];
   var characterArray = ["@", "%", "&", "(", ")", "+", "=", "#"];
 
-  
-  // Prompt user for input on what kind of characters they would like in the password and store response as variables
-  var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
-  var numbers = confirm("Include numbers?");
-  var uppercase = confirm("Include uppercase letters?")
-  var lowercase = confirm("Include lowercase letters?")
-  var characters = confirm("Include special characters?")
 
-  // Create a blank array to contain the list of all characters the user requested
+  // While loop to ensure the user selects at least one type of character for the password
+  // If no option is selected, validInput will remain false and the loop will prompt again
+  var validInput = false;
+
+  while (!validInput) {
+    // Prompt user for input on what kind of characters they would like in the password and store response as variables
+    var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
+    var numbers = confirm("Include numbers?");
+    var uppercase = confirm("Include uppercase letters?")
+    var lowercase = confirm("Include lowercase letters?")
+    var characters = confirm("Include special characters?")
+
+    // Check that user selected at least one option
+    if ((numbers) || (uppercase) || (lowercase) || (characters)) {
+      validInput = true;
+    } else {
+      // Display alert to warn the user that at least one option must be selected
+      window.alert("Please select at least one character type for your password.")
+    }
+  }
+  
+  // Create a blank array to contain the list of possible characters based on user input
   var resultChars = [];
 
   // Create a blank array to store final password values in
   var finalPass = [];
 
-  // Conditional statements to check user input, then add appropriate characters to the blank array resultChars
+  // Conditional statements to check user input, then add appropriate characters to the blank array resultChars with concat function
   if (lowercase){
     resultChars = resultChars.concat(lowerArray);
   }
@@ -41,9 +55,9 @@ function generatePassword() {
   }
 
   // Log final array to console for debug purposes
-  console.log(finalPass);
+  // console.log(finalPass);
 
-  // Combine the characters in finalPass to a string
+  // Combine the characters in finalPass to a string and return it from the function
   return finalPass.join("");
 }
 
