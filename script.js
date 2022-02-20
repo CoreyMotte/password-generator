@@ -8,13 +8,27 @@ function generatePassword() {
   var characterArray = ["@", "%", "&", "(", ")", "+", "=", "#"];
 
 
-  // While loop to ensure the user selects at least one type of character for the password
-  // If no option is selected, validInput will remain false and the loop will prompt again
   var validInput = false;
+  var validLength = false;
+
+  // While loop to ensure the user enters a number between 8 and 128
+
+  while (!validLength){
+    var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
+
+    // Check if number entered is between 8 and 128
+    if ((chartotal > 7) && (chartotal < 129)) {
+      validLength = true;
+    } else {
+      // Warn user that the number entered was not valid
+      window.alert("Please enter a number between 8 and 128.")
+    }
+  }
+
+  // While loop to ensure the user selects at least one type of character for the password
 
   while (!validInput) {
     // Prompt user for input on what kind of characters they would like in the password and store response as variables
-    var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
     var numbers = confirm("Include numbers?");
     var uppercase = confirm("Include uppercase letters?")
     var lowercase = confirm("Include lowercase letters?")
