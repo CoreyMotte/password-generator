@@ -3,11 +3,12 @@
 function generatePassword() {
   // Declaring arrays to contain each character that can be used in a password
   var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var upperArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ];
   var characterArray = ["@", "%", "&", "(", ")", "+", "=", "#"];
 
-  // Prompt user for input on what kind of characters they would like in the password and store response as a variable
+  
+  // Prompt user for input on what kind of characters they would like in the password and store response as variables
   var chartotal = prompt("Please enter the desired length for the password. Value entered must be between 8 and 128.");
   var numbers = confirm("Include numbers?");
   var uppercase = confirm("Include uppercase letters?")
@@ -22,10 +23,10 @@ function generatePassword() {
 
   // Conditional statements to check user input, then add appropriate characters to the blank array resultChars
   if (lowercase){
-    resultChars = resultChars.concat(lowerArray)
+    resultChars = resultChars.concat(lowerArray);
   }
   if (uppercase){
-    resultChars = resultChars.concat(upperArray)
+    resultChars = resultChars.concat(upperArray);
   }
   if (numbers){
     resultChars = resultChars.concat(numberArray);
@@ -34,6 +35,16 @@ function generatePassword() {
     resultChars = resultChars.concat(characterArray);
   }
 
+  // For loop to randomly select characters from resultChars array and append them to the finalPass array
+  for (var i = 0; i < chartotal; i++) {
+    finalPass.push(resultChars[Math.floor(Math.random() * resultChars.length)]);
+  }
+
+  // Log final array to console for debug purposes
+  console.log(finalPass);
+
+  // Combine the characters in finalPass to a string
+  return finalPass.join("");
 }
 
 
