@@ -13,6 +13,27 @@ function generatePassword() {
   var uppercase = confirm("Include uppercase letters?")
   var lowercase = confirm("Include lowercase letters?")
   var characters = confirm("Include special characters?")
+
+  // Create a blank array to contain the list of all characters the user requested
+  var resultChars = [];
+
+  // Create a blank array to store final password values in
+  var finalPass = [];
+
+  // Conditional statements to check user input, then add appropriate characters to the blank array resultChars
+  if (lowercase){
+    resultChars = resultChars.concat(lowerArray)
+  }
+  if (uppercase){
+    resultChars = resultChars.concat(upperArray)
+  }
+  if (numbers){
+    resultChars = resultChars.concat(numberArray);
+  }
+  if (characters){
+    resultChars = resultChars.concat(characterArray);
+  }
+
 }
 
 
